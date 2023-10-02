@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from "react";
-
+import './../styles/App.css';
 import axios from 'axios'
 
 
@@ -11,8 +10,9 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get('https://dummyjson.com/products');
+        const respons = await fetch('https://dummyjson.com/products');
         console.log(response.data);
+        const response=await respons.json();
         setData(response.data);
         if (!response.data) {
           setErr('No data found');
